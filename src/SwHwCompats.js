@@ -1,15 +1,16 @@
 
-import uuidv4 from "uuid/v4"
+
 import React from "react"
-import {useStateContext} from "./useContext";
+import {useStateContext, useDispatchContext} from "./useContext";
 
 
-const Flashwares = () => {
-    const { flashwares } = useStateContext();
+const SwHwCompats = () => {
+    const { swHwCompats } = useStateContext();
+    const dispatch = useDispatchContext();
 
     return (
         <>
-            <h4>Flashwares</h4>
+            <h4>SwHwCompats</h4>
             <table>
                 <thead>
                     <tr>
@@ -23,9 +24,9 @@ const Flashwares = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {Object.values(flashwares).map(flashware => (
-                        <tr key={uuidv4()}>
-                            <td>{flashware.name}</td>
+                    {Object.values(swHwCompats).map(swHwCompat => (
+                        <tr key={swHwCompat.id}>
+                            <td>{swHwCompat.name}</td>
                             <td>-</td>
                             <td>-</td>
                             <td>-</td>
@@ -40,4 +41,4 @@ const Flashwares = () => {
     )
 }
 
-export {Flashwares};
+export {SwHwCompats};

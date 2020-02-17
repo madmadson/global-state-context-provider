@@ -4,8 +4,10 @@ import './index.css';
 import * as serviceWorker from './serviceWorker';
 import { StateProvider } from './StateProvider';
 import { Flashwares } from './Flashwares';
+import { SwHwCompats } from './SwHwCompats';
 
 ReactDOM.render(<StateProvider>
+     <SwHwCompats />
     <Flashwares />
 </StateProvider>, document.getElementById('root'));
 
