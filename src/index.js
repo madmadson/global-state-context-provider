@@ -7,7 +7,7 @@ import { Flashwares } from './Flashwares';
 import { SwHwCompats } from './SwHwCompats';
 
 ReactDOM.render(<StateProvider>
-     <SwHwCompats />
+  <SwHwCompats />   
     <Flashwares />
 </StateProvider>, document.getElementById('root'));
 

@@ -1,43 +1,35 @@
-
-import uuidv4 from "uuid/v4"
-import React from "react"
-import {useStateContext} from "./useContext";
-
+import React from "react";
+import { useStateContext } from "./useContext";
+import { List } from "react-virtualized";
 
 const Flashwares = () => {
-    const { flashwares } = useStateContext();
+  const { flashwares } = useStateContext();
+  const listOfFlashwares = Object.values(flashwares);
 
+  const rowRenderer = ({ 
+    key, 
+    index, 
+    style
+   }) => {
     return (
-        <>
-            <h4>Flashwares</h4>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>SomeData</th>
-                        <th>MoarData</th>
-                        <th>dataaaa</th>
-                        <th>dataaaa</th>
-                        <th>yeahData</th>
-                        <th>cats</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {Object.values(flashwares).map(flashware => (
-                        <tr key={uuidv4()}>
-                            <td>{flashware.name}</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
-        </>
-    )
-}
+        <div key={key} style={style}>
+          <div>{listOfFlashwares[index].name}</div>
+        </div>
+      );
+  };
 
-export {Flashwares};
+  return (
+    <>
+      <h4>Flashwares</h4>
+      <List
+        width={1024}
+        height={800}
+        rowCount={listOfFlashwares.length}
+        rowHeight={20}
+        rowRenderer={rowRenderer}
+      />
+    </>
+  );
+};
+
+export { Flashwares };
