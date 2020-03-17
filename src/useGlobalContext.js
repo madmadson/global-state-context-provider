@@ -1,8 +1,8 @@
 import { useContext } from 'react';
-import { StateContext, DispatchContext } from './StateProvider';
+import { stateContext, dispatchContext } from './GlobalStateProvider';
 
 const useStateContext = () => {
-    const state = useContext(StateContext);
+    const state = useContext(stateContext);
   
     if (state === undefined) {
       throw new Error("Ut oh, where is my dispatch?");
@@ -12,7 +12,7 @@ const useStateContext = () => {
   };
 
 const useDispatchContext = () => {
-    const dispatch = useContext(DispatchContext);
+    const dispatch = useContext(dispatchContext);
   
     if (dispatch === undefined) {
       throw new Error("Ut oh, where is my dispatch?");
